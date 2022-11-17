@@ -31,8 +31,6 @@ public class TeacherLabTutorialListService implements AbstractListService<Teache
 	@Autowired
 	protected TeacherLabTutorialRepository repository;
 
-	// AbstractCreateService<Authenticated, Teacher> ---------------------------
-
 	@Override
 	public boolean authorise(final Request<LabTutorial> request) {
 		assert request != null;
@@ -50,7 +48,14 @@ public class TeacherLabTutorialListService implements AbstractListService<Teache
 		
 		Collection<LabTutorial> result;
 		
-		result = this.repository.findManyLabTutorialsByTeacherId(request.getPrincipal().getActiveRoleId());
+Integer masterId;
+		
+		if(request.getModel().hasAttribute("masterId")){
+			masterId = request.getModel().getInteger("masterId");
+			result = this.repository.findManyLabTutorialsByTeacherAndCourseId(request.getPrincipal().getActiveRoleId(),masterId);
+		}else {
+			result = this.repository.findManyLabTutorialsByTeacherId(request.getPrincipal().getActiveRoleId());
+		}
 		
 		return result;
 	}

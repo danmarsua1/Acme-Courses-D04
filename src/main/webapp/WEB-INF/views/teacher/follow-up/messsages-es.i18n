@@ -15,3 +15,7 @@ teacher.follow-up.form.label.sequenceNumber = Código
 teacher.follow-up.form.label.message = Mensaje
 teacher.follow-up.form.label.creationMoment = Descripción
 teacher.follow-up.form.label.link = Link
+
+teacher.follow-up.form.button.create = Crear
+teacher.follow-up.form.label.confirmation = Los seguimientos no se pueden actualizar ni borrar. Es necesario confirmar su creación.
+teacher.follow-up.confirmation.error = Se necesita confirmación para crear un seguimiento

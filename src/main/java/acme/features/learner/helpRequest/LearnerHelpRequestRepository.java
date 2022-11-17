@@ -17,9 +17,11 @@ import java.util.Collection;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import acme.entities.FollowUp;
 import acme.entities.HelpRequest;
 import acme.framework.entities.UserAccount;
 import acme.framework.repositories.AbstractRepository;
+import acme.roles.Learner;
 import acme.roles.Teacher;
 
 @Repository
@@ -45,5 +47,20 @@ public interface LearnerHelpRequestRepository extends AbstractRepository {
 
 	@Query("select h.learner.id from HelpRequest h where h.id = :id")
 	Integer findLearnerByHelpRequestId(int id);
+
+	@Query("select l from Learner l where l.userAccount.id = :id")
+	Learner findOneLearnerById(int id);
+
+	@Query("select h from HelpRequest h")
+	Collection<HelpRequest> findAllUnpublishedHelpRequests();
+	
+	@Query("select f from FollowUp f where f.helpRequest.id = :id")
+	Collection<FollowUp> findManyFollowUpsByHelpRequest(int id);
+
+	@Query("select te from Teacher te")
+	Collection<Teacher> findAllTeachers();
+	
+	@Query("select te from Teacher te where te.userAccount.username =:username")
+	Teacher findByTeacherName(String username);
 
 }

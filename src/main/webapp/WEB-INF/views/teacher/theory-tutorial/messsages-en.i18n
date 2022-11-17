@@ -16,3 +16,14 @@ teacher.theory-tutorial.form.label.title = Name
 teacher.theory-tutorial.form.label.abstractText = Description
 teacher.theory-tutorial.form.label.cost = Cost
 teacher.theory-tutorial.form.label.link = Link
+
+teacher.course.form.label.selectCourse = Select course
+teacher.theory-tutorial.form.label.learning-time = Learning time
+
+teacher.theory-tutorial.form.button.create = Create
+teacher.theory-tutorial.form.button.update = Update
+teacher.theory-tutorial.form.button.delete = Delete
+teacher.theory-tutorial.form.button.publish = Publish
+
+teacher.theory-tutorial.form.error.negative-amount = The cost's amount can not lower or equal than 0
+teacher.theory-tutorial.form.error.unknown-currency = The cost's currency is not accepted by the system

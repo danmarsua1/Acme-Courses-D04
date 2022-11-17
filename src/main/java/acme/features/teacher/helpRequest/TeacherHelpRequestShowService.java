@@ -71,7 +71,8 @@ public class TeacherHelpRequestShowService implements AbstractShowService<Teache
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "ticker", "statement", "creationMoment", "budget", "initDate", "finishDate", "status", "link");
+		entity.setPublish(false);
+		request.unbind(entity, model, "ticker", "statement", "creationMoment", "budget", "initDate", "finishDate", "status", "link", "publish");
 		
 		Money totalPrice = this.convertToLocalCurrency(entity.getBudget());
 		model.setAttribute("budget", totalPrice);

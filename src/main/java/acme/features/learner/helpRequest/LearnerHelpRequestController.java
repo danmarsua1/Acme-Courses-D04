@@ -31,6 +31,18 @@ public class LearnerHelpRequestController extends AbstractController<Learner, He
 
 	@Autowired
 	protected LearnerHelpRequestShowService	showService;
+	
+	@Autowired
+	protected LearnerHelpRequestCreateService	createService;
+	
+	@Autowired
+	protected LearnerHelpRequestUpdateService	updateService;
+	
+	@Autowired
+	protected LearnerHelpRequestPublishService	publishService;
+	
+	@Autowired
+	protected LearnerHelpRequestDeleteService	deleteService;
 
 	// Constructors -----------------------------------------------------------
 
@@ -39,6 +51,11 @@ public class LearnerHelpRequestController extends AbstractController<Learner, He
 	protected void initialise() {
 		super.addCommand("list", this.listService);
 		super.addCommand("show", this.showService);
+		
+		super.addCommand("create", this.createService);
+		super.addCommand("update", this.updateService);
+		super.addCommand("publish","update", this.publishService);
+		super.addCommand("delete", this.deleteService);
 	}
 
 }

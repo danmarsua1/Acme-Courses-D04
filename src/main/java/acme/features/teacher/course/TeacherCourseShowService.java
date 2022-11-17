@@ -47,8 +47,6 @@ public class TeacherCourseShowService implements AbstractShowService<Teacher, Co
 	@Autowired
 	protected AdministratorConfigurationRepository configurationRepository;
 
-	// AbstractUpdateService<Teacher, Course> interface -----------------
-
 	@Override
 	public boolean authorise(final Request<Course> request) {
 		assert request != null;
@@ -89,7 +87,7 @@ public class TeacherCourseShowService implements AbstractShowService<Teacher, Co
 		boolean hasTheoryTutorial = false;
 		boolean hasLabTutorial = false;
 
-		request.unbind(entity, model, "ticker", "caption", "abstractText", "link");
+		request.unbind(entity, model, "ticker", "caption", "abstractText", "link", "publish");
 		
 		int courseId = request.getModel().getInteger("id");
 		List<Object[]> priceTheoryTutorials = this.repository.getCourseTheoryTutorialsPrice(courseId);

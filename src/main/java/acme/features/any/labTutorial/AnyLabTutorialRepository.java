@@ -27,11 +27,14 @@ public interface AnyLabTutorialRepository extends AbstractRepository {
 	@Query("select l from LabTutorial l where l.id = :id")
 	LabTutorial findOneLabTutorialById(int id);
 	
-	@Query("select l from LabTutorial l")
+	@Query("select l from LabTutorial l where l.publish = true")
 	List<LabTutorial> findAllLabTutorials();
 
-	@Query("select l from Course c, Register r, LabTutorial l where c.id = r.course.id and r.labTutorial.id = l.id and c.id = :id")
+	@Query("select l from Course c, Register r, LabTutorial l where c.id = r.course.id and r.labTutorial.id = l.id and c.id = :id and l.publish = true")
 	Collection<LabTutorial> findManyLabTutorialsByCourseId(int id);
+
+	@Query("select l from LabTutorial l")
+	List<LabTutorial> findAllUnpublishedLabTutorials();
 	
 	
 }

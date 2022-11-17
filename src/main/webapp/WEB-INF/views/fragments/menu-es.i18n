@@ -21,6 +21,7 @@ master.menu.anonymous = Anónimo
 master.menu.anonymous.favourite-link = Enlace favorito
 master.menu.anonymous.daniel-favourite-link = 53770131H: Martinez Suarez, Daniel Jesus
 master.menu.anonymous.user-accounts = Listar Cuentas de Usuario
+master.menu.anonymous.create-blink = Crear Blink
 master.menu.anonymous.list-blink = Listar Blinks
 master.menu.anonymous.list-theory-tutorial = Listar Tutoriales Teóricos
 master.menu.anonymous.list-lab-tutorial = Listar Tutoriales Lab.
@@ -35,8 +36,11 @@ master.menu.authenticated.list-post = Listar Posts
 # master.menu.teacher ###################################################
 
 master.menu.teacher = Profesor
+master.menu.teacher.create-course = Crear Curso
 master.menu.teacher.list-course = Listar Cursos
+master.menu.teacher.create-theory-tutorial = Crear Tutorial teórico
 master.menu.teacher.list-theory-tutorial = Listar Tutoriales Teóricos
+master.menu.teacher.create-lab-tutorial = Crear Tutorial lab.
 master.menu.teacher.list-lab-tutorial  = Listar Tutoriales Lab.
 master.menu.teacher.list-help-request = Listar Tutorías
 master.menu.teacher.list-follow-up = Listar Seguimientos
@@ -45,6 +49,7 @@ master.menu.teacher.list-follow-up = Listar Seguimientos
 
 master.menu.learner = Alumnno
 master.menu.learner.view-dashboard = Dashboard
+master.menu.learner.create-help-request = Crear Tutoría
 master.menu.learner.list-help-request = Listar Tutorías
 master.menu.learner.list-follow-up = Listar Seguimientos
 
@@ -59,8 +64,14 @@ master.menu.administrator.populate-sample = Poblar BD (ejemplos)
 master.menu.administrator.shut-down = Parar el sistema
 master.menu.administrator.view-configuration = Configuración del sistema
 master.menu.administrator.view-dashboard = Dashboard
+master.menu.administrator.create-post = Nuevo Post
 
 # master.menu.user-account ####################################################
 
 master.menu.user-account = Cuenta
 master.menu.user-account.general-data = Datos generales
+master.menu.user-account.teacher = Datos de profesor
+master.menu.user-account.become-teacher = Conviértete en profesor
+master.menu.user-account.learner = Datos de alumno
+master.menu.user-account.become-learner = Conviértete en alumno
+

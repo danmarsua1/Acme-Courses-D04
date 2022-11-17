@@ -17,3 +17,7 @@ any.blink.form.label.email = Email:
 any.blink.list.label.creation-moment = Creation moment
 any.blink.list.label.author = Author
 any.blink.list.label.caption = Caption
+
+any.blink.form.button.create = Create
+any.blink.form.label.confirmation = Blinks cannot be updated or deleted. Need to confirm.
+any.blink.confirmation.error = You need to check the checkbox to create the blink

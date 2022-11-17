@@ -40,3 +40,6 @@ master.panic.label.request = Petición:
 master.panic.label.status = Estado:
 master.panic.label.exceptions = Errores:
 master.panic.text.consult-log = Por favor, consulte el log de la pila de llamadas
+
+# form.error ##################################################################
+form.error.spam = El texto introducido contiene spam

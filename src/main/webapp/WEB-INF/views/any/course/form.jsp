@@ -7,7 +7,7 @@
 	<acme:input-textbox code="any.course.form.label.ticker" path="ticker"/>
 	<acme:input-textbox code="any.course.form.label.caption" path="caption"/>
 	<acme:input-textbox code="any.course.form.label.abstractText" path="abstractText"/>
-	<acme:input-textbox code="any.course.form.label.link" path="link"/>
+	<acme:input-url code="any.course.form.label.link" path="link"/>
 	<acme:input-textbox code="any.course.form.label.cost" path="totalPrice"/>
 	<jstl:if test="${hasTheoryTutorial eq true}">
 		<acme:button code="any.course.form.label.list-theory-tutorial" action="/any/theory-tutorial/list?masterId=${id}"/>

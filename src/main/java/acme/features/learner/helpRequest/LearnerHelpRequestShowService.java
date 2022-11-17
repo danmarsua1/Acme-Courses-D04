@@ -71,7 +71,7 @@ public class LearnerHelpRequestShowService implements AbstractShowService<Learne
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "ticker", "statement", "creationMoment", "budget", "initDate", "finishDate", "status", "link");
+		request.unbind(entity, model, "ticker", "statement", "creationMoment", "budget", "initDate", "finishDate", "status", "link", "publish");
 		
 		Money totalPrice = this.convertToLocalCurrency(entity.getBudget());
 		model.setAttribute("budget", totalPrice);

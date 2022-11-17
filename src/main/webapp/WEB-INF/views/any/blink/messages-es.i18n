@@ -17,3 +17,7 @@ any.blink.form.label.email = Correo electrónico:
 any.blink.list.label.creation-moment = Momento de creación
 any.blink.list.label.author = Autor
 any.blink.list.label.caption = Título
+
+any.blink.form.button.create = Crear
+any.blink.form.label.confirmation = Los blinks no se pueden actualizar ni borrar. Es necesario confirmar su creación.
+any.blink.confirmation.error = Se necesita confirmación para crear el blink

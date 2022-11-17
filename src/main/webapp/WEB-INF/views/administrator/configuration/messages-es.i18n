@@ -10,10 +10,15 @@
 
 administrator.configuration.configuration.form.label.currency = Moneda actual
 administrator.configuration.configuration.form.label.acceptedCurrencies = Divisas aceptadas
-administrator.configuration.configuration.form.label.spamRecords = Terminos Spam
+administrator.configuration.configuration.form.label.spamRecords = Registros Spam
 administrator.configuration.configuration.form.label.spamRecords.term = Término
 administrator.configuration.configuration.form.label.spamRecords.weight = Peso
 administrator.configuration.configuration.form.label.spamRecords.boosterTerm.undefined = No definido
 administrator.configuration.configuration.form.label.spamRecords.boosterTerm = Término potenciador
 administrator.configuration.configuration.form.label.spamThreshold= Umbral del spam
 administrator.configuration.configuration.form.label.spamBooster = Potenciador spam
+
+administrator.configuration.configuration.form.label.newSpamRecord = Nuevo Registro Spam
+administrator.configuration.configuration.form.button.update = Actualizar
+
+administrator.configuration.configuration.form.error.currency = La divisa debe encontrarse dentro de las divisas aceptadas

@@ -65,6 +65,8 @@ public class HelpRequest extends AbstractEntity {
 	@URL
 	protected String link;
 	
+	protected boolean publish;
+	
 	// Relationships ----------------------------------------------------------
 	
 	@Valid
@@ -73,7 +75,6 @@ public class HelpRequest extends AbstractEntity {
 	protected Learner learner;
 	
 	@Valid
-	@NotNull
 	@ManyToOne(optional=false)
 	protected Teacher teacher;
 }

@@ -31,6 +31,9 @@ public class TeacherHelpRequestController extends AbstractController<Teacher, He
 
 	@Autowired
 	protected TeacherHelpRequestShowService	showService;
+	
+	@Autowired
+	protected TeacherHelpRequestUpdateService updateService;
 
 	// Constructors -----------------------------------------------------------
 
@@ -39,6 +42,8 @@ public class TeacherHelpRequestController extends AbstractController<Teacher, He
 	protected void initialise() {
 		super.addCommand("list", this.listService);
 		super.addCommand("show", this.showService);
+		
+		super.addCommand("update", this.updateService);
 	}
 
 }

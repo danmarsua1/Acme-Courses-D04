@@ -43,10 +43,10 @@ public interface TeacherLabTutorialRepository extends AbstractRepository {
 	@Query("select c from Course c where c.id = :id")
 	Course findOneCourseById(int id);
 	
-	@Query("select t.cost.amount, t.cost.currency from Course c, Register r, TheoryTutorial t where c.id = r.course.id and r.theoryTutorial.id = t.id and c.id = :id")
+	@Query("select t.cost.amount, t.cost.currency from Course c, Register r, TheoryTutorial t where c.id = r.course.id and r.theoryTutorial.id = t.id and c.id = :id and t.publish = true")
 	List<Object[]> getCourseTheoryTutorialsPrice(int id);
 
-	@Query("select l.cost.amount, l.cost.currency from Course c, Register r, LabTutorial l where c.id = r.course.id and r.labTutorial.id = l.id and c.id = :id")
+	@Query("select l.cost.amount, l.cost.currency from Course c, Register r, LabTutorial l where c.id = r.course.id and r.labTutorial.id = l.id and c.id = :id and l.publish = true")
 	List<Object[]> getCourseLabTutorialsPrice(int id);
 	
 	@Query("select t from Teacher te, Course c, Register r, TheoryTutorial t where te.id = c.teacher.id and c.id = r.course.id and r.theoryTutorial.id = t.id and te.id = :id")
@@ -66,5 +66,8 @@ public interface TeacherLabTutorialRepository extends AbstractRepository {
 	
 	@Query("select l from LabTutorial l where l.id = :id")
 	LabTutorial findOneLabTutorialById(int id);
+	
+	@Query("select l from Teacher te, Course c, Register r, LabTutorial l where te.id = c.teacher.id and c.id = r.course.id and r.labTutorial.id = l.id and te.id = :id and c.id = :masterId")
+	Collection<LabTutorial> findManyLabTutorialsByTeacherAndCourseId(int id, int masterId);
 	
 }

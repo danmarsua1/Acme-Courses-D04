@@ -31,8 +31,6 @@ public class TeacherTheoryTutorialListService implements AbstractListService<Tea
 	@Autowired
 	protected TeacherTheoryTutorialRepository repository;
 
-	// AbstractCreateService<Authenticated, Teacher> ---------------------------
-
 	@Override
 	public boolean authorise(final Request<TheoryTutorial> request) {
 		assert request != null;
@@ -49,8 +47,14 @@ public class TeacherTheoryTutorialListService implements AbstractListService<Tea
 		assert request != null;
 		
 		Collection<TheoryTutorial> result;
+		Integer masterId;
 		
-		result = this.repository.findManyTheoryTutorialsByTeacherId(request.getPrincipal().getActiveRoleId());
+		if(request.getModel().hasAttribute("masterId")){
+			masterId = request.getModel().getInteger("masterId");
+			result = this.repository.findManyTheoryTutorialsByTeacherAndCourseId(request.getPrincipal().getActiveRoleId(),masterId);
+		}else {
+			result = this.repository.findManyTheoryTutorialsByTeacherId(request.getPrincipal().getActiveRoleId());
+		}
 		
 		return result;
 	}

@@ -16,3 +16,14 @@ teacher.theory-tutorial.form.label.title = Nombre
 teacher.theory-tutorial.form.label.abstractText = Descripción
 teacher.theory-tutorial.form.label.cost = Precio
 teacher.theory-tutorial.form.label.link = Link
+
+teacher.course.form.label.selectCourse = Seleccione curso
+teacher.theory-tutorial.form.label.learning-time = Duración del tutorial
+
+teacher.theory-tutorial.form.button.create = Crear
+teacher.theory-tutorial.form.button.update = Actualizar
+teacher.theory-tutorial.form.button.delete = Borrar
+teacher.theory-tutorial.form.button.publish = Publicar
+
+teacher.theory-tutorial.form.error.negative-amount = El importe del coste no puede ser inferior o igual a 0
+teacher.theory-tutorial.form.error.unknown-currency = La divisa del coste no es aceptada por el sistema

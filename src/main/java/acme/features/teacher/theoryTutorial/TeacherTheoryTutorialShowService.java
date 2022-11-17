@@ -12,11 +12,15 @@
 
 package acme.features.teacher.theoryTutorial;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.Course;
 import acme.entities.TheoryTutorial;
 import acme.features.administrator.configuration.AdministratorConfigurationRepository;
+import acme.features.any.course.AnyCourseRepository;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
 import acme.framework.datatypes.Money;
@@ -33,8 +37,9 @@ public class TeacherTheoryTutorialShowService implements AbstractShowService<Tea
 	
 	@Autowired
 	protected AdministratorConfigurationRepository configurationRepository;
-
-	// AbstractUpdateService<Teacher, TheoryTutorial> interface -----------------
+	
+	@Autowired
+	protected AnyCourseRepository courseRepository;
 
 	@Override
 	public boolean authorise(final Request<TheoryTutorial> request) {
@@ -73,7 +78,9 @@ public class TeacherTheoryTutorialShowService implements AbstractShowService<Tea
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "ticker", "title", "abstractText", "cost", "link");
+		request.unbind(entity, model, "ticker", "title", "abstractText", "cost", "link", "publish");
+		List<Course> courses = (List<Course>) this.courseRepository.findCourses();
+		model.setAttribute("courses", courses);
 		
 		Money totalPrice = this.convertToLocalCurrency(entity.getCost());
 		model.setAttribute("cost", totalPrice);

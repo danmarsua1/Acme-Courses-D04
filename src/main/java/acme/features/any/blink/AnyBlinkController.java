@@ -34,6 +34,9 @@ public class AnyBlinkController extends AbstractController<Any, Blink> {
 	@Autowired
 	protected AnyBlinkShowService	showService;
 	
+	@Autowired
+	protected AnyBlinkCreateService	createService;
+	
 	// Constructors -----------------------------------------------------------
 
 
@@ -41,6 +44,7 @@ public class AnyBlinkController extends AbstractController<Any, Blink> {
 	protected void initialise() {
 		super.addCommand("list", this.listService);
 		super.addCommand("show", this.showService);
+		super.addCommand("create", this.createService);
 	}
 
 }

@@ -18,3 +18,8 @@ administrator.configuration.configuration.form.label.spamRecords.boosterTerm = B
 administrator.configuration.configuration.form.label.spamThreshold= Spam Threshold
 administrator.configuration.configuration.form.label.spamBooster = Spam booster
 
+administrator.configuration.configuration.form.label.newSpamRecord = New Spam Record
+administrator.configuration.configuration.form.button.update = Update
+
+administrator.configuration.configuration.form.error.currency = The system currency must be an accepted currency
+

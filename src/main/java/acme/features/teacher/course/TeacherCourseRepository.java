@@ -37,7 +37,7 @@ public interface TeacherCourseRepository extends AbstractRepository {
 	@Query("select c from Course c where c.teacher.id = :id")
 	Collection<Course> findManyCoursesByTeacher(int id);
 	
-	@Query("select c from Course c")
+	@Query("select c from Course c where c.publish = true")
 	Collection<Course> findAllCourses();
 	
 	@Query("select c from Course c where c.id = :id")

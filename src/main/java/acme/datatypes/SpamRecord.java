@@ -44,6 +44,4 @@ public class SpamRecord extends AbstractDatatype {
 
 	protected String boosterTerm;
 
-	// Object interface -------------------------------------------------------
-
 }

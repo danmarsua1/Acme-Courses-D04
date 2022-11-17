@@ -18,10 +18,12 @@
 	uri="http://www.springframework.org/security/tags"%>
 
 <acme:list>
-	<acme:list-column code="authenticated.post.list.label.caption"
-		path="caption" width="50%" />
+	<acme:list-column  code="authenticated.post.form.label.flag"
+		path="flag" />
+	<acme:list-column  code="authenticated.post.list.label.caption"
+		path="caption" />
 	<acme:list-column code="authenticated.post.list.label.creation-moment"
-		path="creationMoment" width="20%" />
+		path="creationMoment" />
 	<acme:list-column code="authenticated.post.list.label.message"
-		path="message" width="20%" />
+		path="message" width="60%" />
 </acme:list>

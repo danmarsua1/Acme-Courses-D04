@@ -8,12 +8,15 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-authenticated.post.form.label.creation-moment = Momento de instanciación:
+authenticated.post.form.label.creation-moment = Momento de creación:
 authenticated.post.form.label.caption = Título:
 authenticated.post.form.label.flag = Informativo:
 authenticated.post.form.label.message = Texto:
 authenticated.post.form.label.link = Link:
 
-authenticated.post.list.label.creation-moment = Momento de instanciación
+authenticated.post.form.label.flag.yes = Informativo
+authenticated.post.form.label.flag.no = No informativo
+
+authenticated.post.list.label.creation-moment = Momento de creación
 authenticated.post.list.label.message = Texto
 authenticated.post.list.label.caption = Título

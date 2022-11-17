@@ -15,3 +15,7 @@ learner.follow-up.form.label.sequenceNumber = Code
 learner.follow-up.form.label.message = Message
 learner.follow-up.form.label.creationMoment = Creation moment
 learner.follow-up.form.label.link = Link
+
+learner.follow-up.form.button.create = Create
+learner.follow-up.form.label.confirmation = Follow ups cannot be updated or deleted. Need to confirm.
+learner.follow-up.confirmation.error = You need to check the checkbox to create the follow up

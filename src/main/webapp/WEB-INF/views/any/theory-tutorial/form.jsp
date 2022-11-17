@@ -19,7 +19,7 @@
 	<acme:input-textbox code="any.theory-tutorial.form.label.ticker" path="ticker"/>
 	<acme:input-textbox code="any.theory-tutorial.form.label.title" path="title"/>
 	<acme:input-textbox code="any.theory-tutorial.form.label.abstractText" path="abstractText"/>
-	<acme:input-textbox code="any.theory-tutorial.form.label.cost" path="cost"/>
-	<acme:input-textbox code="any.theory-tutorial.form.label.link" path="link"/>
+	<acme:input-money code="any.theory-tutorial.form.label.cost" path="cost"/>
+	<acme:input-url code="any.theory-tutorial.form.label.link" path="link"/>
 </acme:form>
 

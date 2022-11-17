@@ -12,7 +12,7 @@ import acme.framework.repositories.AbstractRepository;
 @Repository
 public interface AnyCourseRepository extends AbstractRepository{
 	
-	@Query("select c from Course c")
+	@Query("select c from Course c where c.publish = true")
 	Collection<Course> findCourses();
 
 	@Query("select c from Course c where c.id = :id")
@@ -23,5 +23,11 @@ public interface AnyCourseRepository extends AbstractRepository{
 
 	@Query("select l.cost.amount, l.cost.currency from Course c, Register r, LabTutorial l where c.id = r.course.id and r.labTutorial.id = l.id and c.id = :id")
 	List<Object[]> getCourseLabTutorialsPrice(int id);
+
+	@Query("select c from Course c where c.ticker = :ticker")
+	Course findByTicker(String ticker);
+
+	@Query("select c from Course c")
+	List<Course> findAllUnpublishedCourses();
 
 }

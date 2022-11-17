@@ -45,6 +45,8 @@ public class LabTutorial extends AbstractEntity {
 
 	@URL
 	protected String			link;
+	
+	protected boolean publish;
 
 	// Derived attributes -----------------------------------------------------
 

@@ -20,5 +20,5 @@
 	<acme:input-textbox code="authenticated.post.form.label.caption" path="caption"/>
 	<acme:input-textarea code="authenticated.post.form.label.message" path="message"/>
 	<acme:input-textbox code="authenticated.post.form.label.flag" path="flag"/>
-	<acme:input-textbox code="authenticated.post.form.label.link" path="link"/>
+	<acme:input-url code="authenticated.post.form.label.link" path="link"/>
 </acme:form>

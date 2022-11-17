@@ -19,3 +19,8 @@ teacher.course.form.label.abstractText = Descripción
 teacher.course.form.label.publish = Publicado
 teacher.course.form.label.link = Link
 teacher.course.form.label.totalPrice = Precio total
+
+teacher.course.form.button.create = Crear
+teacher.course.form.button.update = Actualizar
+teacher.course.form.button.delete = Borrar
+teacher.course.form.button.publish = Publicar

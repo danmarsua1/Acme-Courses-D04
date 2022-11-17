@@ -16,3 +16,14 @@ teacher.lab-tutorial.form.label.title = Name
 teacher.lab-tutorial.form.label.abstractText = Description
 teacher.lab-tutorial.form.label.cost = Cost
 teacher.lab-tutorial.form.label.link = Link
+
+teacher.course.form.label.selectCourse = Select course
+teacher.lab-tutorial.form.label.learning-time = Learning time
+
+teacher.lab-tutorial.form.button.create = Create
+teacher.lab-tutorial.form.button.update = Update
+teacher.lab-tutorial.form.button.delete = Delete
+teacher.lab-tutorial.form.button.publish = Publish
+
+teacher.lab-tutorial.form.error.negative-amount = The cost's amount can not lower or equal than 0
+teacher.lab-tutorial.form.error.unknown-currency = The cost's currency is not accepted by the system
