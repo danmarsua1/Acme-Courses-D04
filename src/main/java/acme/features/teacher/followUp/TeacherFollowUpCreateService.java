@@ -135,7 +135,7 @@ public class TeacherFollowUpCreateService implements AbstractCreateService<Teach
 	public String createTicker(HelpRequest helpRequest) {
 
 		// The ticker must be as follow: HRE-XXX:XXXX
-		String ticker = new String();
+		String ticker = "";
 		final String TICKER_PREFIX = helpRequest.getTicker();
 
 		// Set ticker format
@@ -179,11 +179,11 @@ public class TeacherFollowUpCreateService implements AbstractCreateService<Teach
 		total = size + 1;
 
 		if (String.valueOf(total).length() == 1) {
-			res = "000" + String.valueOf(total);
+			res = "000" + total;
 		} else if (String.valueOf(total).length() == 2) {
-			res = "00" + String.valueOf(total);
+			res = "00" + total;
 		} else if (String.valueOf(total).length() == 3) {
-			res = "0" + String.valueOf(total);
+			res = "0" + total;
 		} else if (String.valueOf(total).length() > 3) {
 			res = String.valueOf(total);
 		}

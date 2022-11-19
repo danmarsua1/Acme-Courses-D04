@@ -174,7 +174,7 @@ public class TeacherTheoryTutorialCreateService implements AbstractCreateService
 	public String createTicker() {
 
 		// The ticker must be as follow: TTU-XXX
-		String ticker = new String();
+		String ticker = "";
 		final String TICKER_PREFIX = "TTU";
 
 		// Set ticker format
@@ -216,9 +216,9 @@ public class TeacherTheoryTutorialCreateService implements AbstractCreateService
 		total = size + 1;
 		
 		if(String.valueOf(total).length()==1) {
-			res = "00" + String.valueOf(total);
+			res = "00" + total;
 		} else if (String.valueOf(total).length()==2){
-			res = "0" + String.valueOf(total);
+			res = "0" + total;
 		} else if (String.valueOf(total).length()>2){
 			res = String.valueOf(total);
 		}

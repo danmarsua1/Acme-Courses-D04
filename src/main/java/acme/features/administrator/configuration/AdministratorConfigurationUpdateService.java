@@ -50,11 +50,11 @@ public class AdministratorConfigurationUpdateService implements AbstractUpdateSe
 		
 		String newTerm = (String) request.getModel().getAttribute("newTerm");
 		
-		if(newTerm != "") {
-			Double newWeight = (String) request.getModel().getAttribute("newWeight") != "" 
+		if(!"".equals(newTerm)) {
+			Double newWeight = !"".equals((String) request.getModel().getAttribute("newWeight")) 
 				?  Double.valueOf( (String)request.getModel().getAttribute("newWeight")) 
 				: 0.0;
-			String newBoosterTerm =	(String) request.getModel().getAttribute("newBoosterTerm") != "" 
+			String newBoosterTerm =	!"".equals((String) request.getModel().getAttribute("newBoosterTerm")) 
 				?  (String) request.getModel().getAttribute("newBoosterTerm")
 				: "X";
 			

@@ -103,8 +103,8 @@ public class TeacherCourseShowService implements AbstractShowService<Teacher, Co
 		// Has Theory tutorial or Lab Tutorial
 		Collection<TheoryTutorial> theoryTutorials  = this.theoryTutorialRepository.findManyTheoryTutorialsByCourseId(courseId);
 		Collection<LabTutorial> labTutorials  = this.labTutorialRepository.findManyLabTutorialsByCourseId(courseId);
-		hasTheoryTutorial = theoryTutorials.size()==0 ? false : true;
-		hasLabTutorial = labTutorials.size()==0 ? false : true;
+		hasTheoryTutorial = !theoryTutorials.isEmpty();
+		hasLabTutorial = !labTutorials.isEmpty();
 		model.setAttribute("hasTheoryTutorial", hasTheoryTutorial);
 		model.setAttribute("hasLabTutorial", hasLabTutorial);
 	}
@@ -134,27 +134,33 @@ public class TeacherCourseShowService implements AbstractShowService<Teacher, Co
 			amount = (Double) b[0];
 			currency = (String) b[1];
 			
+			Double operationGBPEUR = currency.equals("GBP")
+					? amount * GBP_EUR_FACTOR
+					: amount;
+			
+			Double operationGBPUSD = currency.equals("GBP")
+					? amount * GBP_USD_FACTOR
+					: amount;
+			
+			Double operationUSDGBP = currency.equals("USD")
+					? amount * USD_GBP_FACTOR
+					: amount;
+			
 			// If localCurrency = EUR
 			if(localCurrency.equals("EUR")) {
 				sumAmount += currency.equals("USD")
 					? amount * USD_EUR_FACTOR
-					: currency.equals("GBP")
-					? amount * GBP_EUR_FACTOR
-					: amount;
+					: operationGBPEUR;
 			// If localCurrency = USD
 			}else if(localCurrency.equals("USD")) {
 				sumAmount += currency.equals("EUR")
-						? amount * EUR_USD_FACTOR
-						: currency.equals("GBP")
-						? amount * GBP_USD_FACTOR
-						: amount;
+					? amount * EUR_USD_FACTOR
+					: operationGBPUSD;
 			// If localCurrency = GBP
 			}else{
 				sumAmount += currency.equals("EUR")
-						? amount * EUR_GBP_FACTOR
-						: currency.equals("USD")
-						? amount * USD_GBP_FACTOR
-						: amount;
+					? amount * EUR_GBP_FACTOR
+					: operationUSDGBP;
 			}
 		}
 		

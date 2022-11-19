@@ -24,7 +24,7 @@ public class SpamHelper {
 		List<String> spamRecords = Arrays.asList(stringSpamRecords.split(","));
 		for (String oldSpamRecord : spamRecords) {
 			String[] terms = oldSpamRecord.split("-");
-			newSpamRecord = new SpamRecord(terms[0], Double.valueOf(terms[1]), terms[2]=="X" ? "" : terms[2]);
+			newSpamRecord = new SpamRecord(terms[0], Double.valueOf(terms[1]), "X".equals(terms[2]) ? "" : terms[2]);
 			res.add(newSpamRecord);
 		}
 
@@ -33,18 +33,18 @@ public class SpamHelper {
 	
 	public String convertSpamRecordsToString(List<SpamRecord> spamRecords) {
 
-		String stringSpamRecords = "";
+		StringBuilder stringSpamRecords = new StringBuilder();
 		
 		for (SpamRecord objectSpamRecord : spamRecords) {
-			stringSpamRecords += objectSpamRecord.getTerm() + "-";
-			stringSpamRecords += String.valueOf(objectSpamRecord.getWeight()) + "-";
-			stringSpamRecords += objectSpamRecord.getBoosterTerm() != "X"
+			stringSpamRecords.append(objectSpamRecord.getTerm() + "-");
+			stringSpamRecords.append(String.valueOf(objectSpamRecord.getWeight()) + "-");
+			stringSpamRecords.append(!"X".equals(objectSpamRecord.getBoosterTerm())
 				? objectSpamRecord.getBoosterTerm()
-				: "X";
-			stringSpamRecords += ",";
+				: "X");
+			stringSpamRecords.append(",");
 		}
 
-		return stringSpamRecords;
+		return stringSpamRecords.toString();
 	}
 	
 	public boolean isSpamText(String stringSpamRecords, String text) {
@@ -68,7 +68,7 @@ public class SpamHelper {
 		
 		totalFactor = totalFactor / countWords;
 		
-		return totalFactor > spamThreshold ? true : res;
+		return totalFactor > spamThreshold || res;
 	}
 	
 	// Transform operations: lower case, remove spaces, remove dashes, remove underscores, remove line breaks 
@@ -86,7 +86,7 @@ public class SpamHelper {
 	
 	public Double applySpamFactorByText(SpamRecord spamRecord, String text, Double spamBooster) {
 		
-		Double totalWeight = 0.0;
+		Double totalWeight;
 		
 		String term = spamRecord.getTerm();
 		Double termWeight = spamRecord.getWeight();
@@ -110,7 +110,7 @@ public class SpamHelper {
 	    if(word.split(" ").length<=1) {
 	    	
 	    	// split the string by spaces
-	    	String aux[] = text.split(" ");
+	    	String[] aux = text.split(" ");
 		 
 		    for (int i = 0; i < aux.length; i++)
 		    {

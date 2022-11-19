@@ -87,31 +87,37 @@ public class AnyTheoryTutorialShowService implements AbstractShowService<Any, Th
 		final Double GBP_EUR_FACTOR = 1.14938;
 		final Double GBP_USD_FACTOR = 1.137041;
 		
-			amount = prices.getAmount();
-			currency = prices.getCurrency();
-			
-			// If localCurrency = EUR
-			if(localCurrency.equals("EUR")) {
-				convertedAmount = currency.equals("USD")
-					? amount * USD_EUR_FACTOR
-					: currency.equals("GBP")
-					? amount * GBP_EUR_FACTOR
-					: amount;
-			// If localCurrency = USD
-			}else if(localCurrency.equals("USD")) {
-				convertedAmount = currency.equals("EUR")
-						? amount * EUR_USD_FACTOR
-						: currency.equals("GBP")
-						? amount * GBP_USD_FACTOR
-						: amount;
-			// If localCurrency = GBP
-			}else{
-				convertedAmount = currency.equals("EUR")
-						? amount * EUR_GBP_FACTOR
-						: currency.equals("USD")
-						? amount * USD_GBP_FACTOR
-						: amount;
-			}
+		amount = prices.getAmount();
+		currency = prices.getCurrency();
+		
+		Double operationGBPEUR = currency.equals("GBP")
+				? amount * GBP_EUR_FACTOR
+				: amount;
+		
+		Double operationGBPUSD = currency.equals("GBP")
+				? amount * GBP_USD_FACTOR
+				: amount;
+		
+		Double operationUSDGBP = currency.equals("USD")
+				? amount * USD_GBP_FACTOR
+				: amount;
+		
+		// If localCurrency = EUR
+		if(localCurrency.equals("EUR")) {
+			convertedAmount = currency.equals("USD")
+				? amount * USD_EUR_FACTOR
+				: operationGBPEUR;
+		// If localCurrency = USD
+		}else if(localCurrency.equals("USD")) {
+			convertedAmount = currency.equals("EUR")
+				? amount * EUR_USD_FACTOR
+				: operationGBPUSD;
+		// If localCurrency = GBP
+		}else{
+			convertedAmount = currency.equals("EUR")
+				? amount * EUR_GBP_FACTOR
+				: operationUSDGBP;
+		}
 		
 		res.setAmount(convertedAmount);
 		res.setCurrency(localCurrency);

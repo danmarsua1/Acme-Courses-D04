@@ -175,7 +175,7 @@ public class LearnerHelpRequestCreateService implements AbstractCreateService<Le
 	public String createTicker(int cont) {
 
 		// The ticker must be as follow: HRE-XXX
-		String ticker = new String();
+		String ticker = "";
 		final String TICKER_PREFIX = "HRE";
 
 		// Set ticker format
@@ -217,9 +217,9 @@ public class LearnerHelpRequestCreateService implements AbstractCreateService<Le
 		total = size + cont;
 		
 		if(String.valueOf(total).length()==1) {
-			res = "00" + String.valueOf(total);
+			res = "00" + total;
 		} else if (String.valueOf(total).length()==2){
-			res = "0" + String.valueOf(total);
+			res = "0" + total;
 		} else if (String.valueOf(total).length()>2){
 			res = String.valueOf(total);
 		}
