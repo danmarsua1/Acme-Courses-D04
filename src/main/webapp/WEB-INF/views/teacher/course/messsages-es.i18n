@@ -24,3 +24,6 @@ teacher.course.form.button.create = Crear
 teacher.course.form.button.update = Actualizar
 teacher.course.form.button.delete = Borrar
 teacher.course.form.button.publish = Publicar
+
+teacher.course.form.label.list-lab-tutorial = Listar Tutorial Lab.
+teacher.course.form.label.list-theory-tutorial = Listar Tutorial Teóricos.
