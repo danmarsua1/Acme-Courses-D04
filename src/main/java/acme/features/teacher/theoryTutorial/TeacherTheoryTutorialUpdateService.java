@@ -16,6 +16,7 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.regex.Pattern;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -129,8 +130,13 @@ public class TeacherTheoryTutorialUpdateService implements AbstractUpdateService
 			errors.state(request, res, "cost", "teacher.theory-tutorial.form.error.unknown-currency");
 		}
 		
-		if(String.valueOf(request.getModel().getAttribute("learningTime")).length()<=0) {
+		String learningTime = request.getModel().getAttribute("learningTime").toString();
+		Pattern numericPattern = Pattern.compile("-?\\d+(\\.\\d+)?");
+		
+		if(String.valueOf(learningTime).length()<=0) {
 			errors.state(request, false, "learningTime", "javax.validation.constraints.NotBlank.message");
+		} else if(!numericPattern.matcher(learningTime).matches()) {
+			errors.state(request, false, "learningTime", "javax.validation.constraints.MustNumber.message");
 		}
 		
 	}

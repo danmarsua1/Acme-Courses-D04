@@ -13,6 +13,7 @@
 package acme.features.teacher.theoryTutorial;
 
 import java.util.List;
+import java.util.regex.Pattern;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -114,8 +115,13 @@ public class TeacherTheoryTutorialPublishService implements AbstractUpdateServic
 			errors.state(request, !isSpam, "abstractText", "form.error.spam");
 		}
 		
-		if(String.valueOf(request.getModel().getAttribute("learningTime")).length()<=0) {
+		String learningTime = request.getModel().getAttribute("learningTime").toString();
+		Pattern numericPattern = Pattern.compile("-?\\d+(\\.\\d+)?");
+		
+		if(String.valueOf(learningTime).length()<=0) {
 			errors.state(request, false, "learningTime", "javax.validation.constraints.NotBlank.message");
+		} else if(!numericPattern.matcher(learningTime).matches()) {
+			errors.state(request, false, "learningTime", "javax.validation.constraints.MustNumber.message");
 		}
 		
 	}
