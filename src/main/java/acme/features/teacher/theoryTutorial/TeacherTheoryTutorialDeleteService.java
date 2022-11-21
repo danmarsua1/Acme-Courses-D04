@@ -12,6 +12,7 @@
 
 package acme.features.teacher.theoryTutorial;
 
+import java.util.Collection;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -107,8 +108,10 @@ public class TeacherTheoryTutorialDeleteService implements AbstractDeleteService
 		assert request != null;
 		assert entity != null;
 		
-		Register register = this.registerRepository.findOneRegisterByTheoryTutorial(entity.getId());
-		this.registerRepository.delete(register);
+		Collection<Register> registers = this.registerRepository.findManyRegisterByTheoryTutorial(entity.getId());
+		for (final Register r : registers) {
+			this.registerRepository.delete(r);
+		}
 
 		this.repository.delete(entity);
 		
